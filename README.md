@@ -18,3 +18,4 @@ Upcoming features:
 1. Ability to edit link titles
 2. Ability to add link to Bookmarks
 3. Ability to download links in more formats (JSON, CSV, TXT)
+
