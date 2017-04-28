@@ -8,6 +8,13 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
+function truncate(string){
+   if (string.length > 70)
+      return string.substring(0,70)+'...';
+   else
+      return string;
+};
+
 function showUrls() {
     jQuery("#lastUpdatedTime").html(amplify.store("copiedUrlsDate"));
     var e = className = "",
@@ -24,7 +31,7 @@ function displayCurrWinTabsInfo() {
     chrome.tabs.getAllInWindow(null, function(tabArray) {
         for (i = 0; i < tabArray.length; i++) {
             var checkBox = '<input type="checkbox" class="tabArrayCheckbox" id=tab_' + i + ' value=' + i + ' /> ';
-            $(".tabListContent").append("<div class='currTabItemContainter'>" + checkBox + "<label for='tab_"+i+"' title='" + tabArray[i].url + "'>" + tabArray[i].title + "</label>" + "<br/>" + "</div>");
+            $(".tabListContent").append("<div class='currTabItemContainter checkbox-primary'>" + checkBox + "<label for='tab_"+i+"' title='"+tabArray[i].title+" (" + tabArray[i].url + ")'>" + truncate(tabArray[i].title) + "</label>" + "<br/>" + "</div>");
         }
         $(".panel .newSessionPage").trigger('click');
         $("#selectAll").change(function(){
@@ -50,7 +57,7 @@ storage.get(null, function(all) {
             });
             
             details += "</div>";
-            $(".container .savedSessionPage ul").append("<li class='savedList'>" +
+            $("#saved .savedSessionPage ul").append("<li class='savedList'>" +
                                                             "<div class='titleLabelBar'>" +
                                                                 "<i class='icon-star icon-large'></i><b class='titleLabel'>" + all[i].title  + "</b> (" + all[i].tabs.length + ")" +
                                                                 "<div class='sessionControls'>" +
@@ -64,10 +71,10 @@ storage.get(null, function(all) {
         }
     }
     if(!sessionsExist)
-        $(".container .savedSessionPage ul").html("<span class='noSessionsExist'>There are no saved sessions.</span>");
+        $("#saved .savedSessionPage ul").html("<span class='noSessionsExist'>There are no saved sessions.</span>");
 
     generateDropdown();
-    $(".container .savedSessionPage ul.savedList li.savedList").click(function(event){
+    $("#saved .savedSessionPage ul.savedList li.savedList").click(function(event){
         var aControlClicked =
             $(event.target).is(".exportExcelSessionControl") || $(event.target).is(".exportExcelSessionControl > *")
             || $(event.target).is(".openSessionControl") || $(event.target).is(".openSessionControl > *")
@@ -143,6 +150,7 @@ function generateDropdown(){
 }
 
 $(document).ready(function() {
+    jQuery('#myTab a:last').tab('show');
 	displayCurrWinTabsInfo();
     
     $(".panel .newSessionPage").on('click',function(){

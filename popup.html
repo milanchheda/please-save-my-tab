@@ -3,50 +3,52 @@
 <head>
     <title>Please, Save My Tabs!</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-    <link href='style.css' rel='stylesheet' type='text/css'>  
-	<script src="/assets/jquery-2.0.3.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href='css/style.css' rel='stylesheet' type='text/css'>  
+	<script type="text/javascript" src="/assets/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
     <script type="text/javascript" src="/assets/amplify.min.js"></script>
 	<script type="text/javascript" src="/assets/feed.js"></script>
 </head>
 <body>
     <div id="mainContainer">
-        <div class="panel">
-            <div class="newSessionPage">New</div>
-            <div class="savedSessionPage">Saved</div>
-            <div class="howToSessionPage">How-to</div>
-            <div class="errorMessages"></div>
-        </div>
-        <div class="container">
-            <!-- new Session Page content -->
-            <div class="newSessionPage">
-                <input type="radio" id="newSessionId" name="sessionType" value="new"><label for="newSessionId">New session name: </label>
-                <input type="radio" id="existingSessionId" name="sessionType" value="existing"><label for="existingSessionId">Add to existing sessions:</label>
-                <br />
-                <select id="selectExisting"></select>
-                <div id="newSaveButton" class="btn">Save</div>
+    <nav class="navbar navbar-default" role="navigation">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a data-target="#new" data-toggle="tab">New</a>
+                    </li>
+                    <li>
+                        <a data-target="#saved" data-toggle="tab">Saved</a>
+                    </li>
+                </ul>
             </div>
-            <div class="newSessionPage">
-                <div class="clear"></div>
-                <div class="tabListContent">
+        </nav>
+        <div class="errorMessages">asdas</div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="new">
+                <div class="newSessionPage">
+
+                    <input type="radio" id="newSessionId" name="sessionType" value="new"><label for="newSessionId">New session name: </label>
+                    <input type="radio" id="existingSessionId" name="sessionType" value="existing"><label for="existingSessionId">Add to existing sessions:</label>
+                    <br />
+                    <select id="selectExisting"></select>
+                    <button id="newSaveButton" type="button" class="btn btn-success">Save</button>
+                    <!-- <div id="newSaveButton" class="btn">Save</div> -->
+                </div>
+                <div class="newSessionPage">
+                    <div class="clear"></div>
+                    <div class="tabListContent">
+                    </div>
                 </div>
             </div>
-            
-            <!-- saved Session Page content -->
-            <div class="savedSessionPage">
-                <ul class="savedList">
-                </ul>
+            <div class="tab-pane" id="saved">
+                <div class="savedSessionPage">
+                    <ul class="savedList">
+                    </ul>
+                </div>
             </div>
-            <div class="howToPage">
-                <ul class='howToPageDesc'>
-                    <li>Click on <b>'New'</b> tab. You will be able to see all open links that are opened in the browser.</li>
-                    <li>Select the links that you want to save.</li>
-                    <li>Once you have selected all the links, click on <b>'New session name'</b> to create a new session OR click on <b>'Add to existing sessions'</b> and select the session in which you want to add this links. Click <b>'Save'</b>.</li>
-                    <li>Ta daa..!</li>
-                    <li>Click on 'Saved' tab to see all your saved sessions.</li>
-                    <li>Click on <b>Open</b> to open all links in browser from that session.</li>
-                </ul>
-            </div>
-       </div>
+        </div>
     </div>
 </body>
 </html>

@@ -3,8 +3,33 @@ body {
     min-height: 300px;
     overflow-x: hidden;
     font: 12px sans-serif;
+    line-height: 20px;
     /*padding: 10px 0 10px 0;*/
-    background: #EEE;
+    /*background: #EEE;*/
+}
+.navbar {
+    margin-bottom: 8px !important;
+}
+.navbar-default {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #333;
+}
+.navbar-collapse {
+    padding-left: 0px !important;
+}
+.navbar-nav li:hover {
+    cursor: pointer;
+    background-color: #EEE;
+}
+.newSessionPage {
+    /*background: #e6b980;*/
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    padding: 8px;
+    border: 1px solid #DDD;
+    /*min-height: 70px;*/
+    margin-bottom: 10px;
+    position: relative;
 }
 .hidden, #selectExisting{
 	display: none;
@@ -19,6 +44,8 @@ body {
 }
 #newSessionId, #existingSessionId {
     margin-top: -2px;
+    width: 16px;
+    height: 16px;
 }
 .savedSessionDiv{
 	margin-top: 10px;
@@ -93,7 +120,7 @@ html ul.tabLabels li.active, html ul.tabLabels li.active a:hover  {
 
 
 #mainContainer{
-    padding: 5px 30px 0 0;
+    /*padding: 5px 30px 0 0;*/
 }
 
 .panel div.newSessionPage, .panel div.savedSessionPage, .panel div.howToSessionPage{
@@ -167,10 +194,15 @@ html ul.tabLabels li.active, html ul.tabLabels li.active a:hover  {
 #newSaveButton {
     float: right;
     cursor: pointer;
-    padding: 4px 5px;
-    background: #B9FF10;
-    color: #000;
-    -webkit-border-radius: 4px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 12px;
+        position: absolute;
+    top: 4px;
+    right: 5px;
+    /*background: #B9FF10;*/
+    /*color: #000;*/
+/*    -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     border: solid 1px #20538D;
@@ -184,10 +216,10 @@ html ul.tabLabels li.active, html ul.tabLabels li.active a:hover  {
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
-    user-select:none;
+    user-select:none;*/
 }
 #newSaveButton:hover {
-    background: #B9E530;
+    /*background: #B9E530;*/
     border: solid 1px #2A4E77;
     text-decoration: none;
 }
@@ -200,50 +232,52 @@ html ul.tabLabels li.active, html ul.tabLabels li.active a:hover  {
 }
 
 .tabListContent{
-    margin: 5px 0 0 0;
-    background: rgba(255,255,255,0.5);
+    /*margin: 5px 0 0 0;*/
+    /*background: rgba(255,255,255,0.5);*/
     border-radius: 5px;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
-.container .savedSessionPage ul.savedList{
+#mainContainer .savedSessionPage ul.savedList{
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.container .savedSessionPage ul.savedList li{
+#mainContainer .savedSessionPage ul.savedList li{
     margin-bottom: 5px;
     line-height: 20px;
     font-size: 12px;
     display: block;
     padding: 3px 5px 6px 18px;
-    border-radius: 5px;
-    background: url('images/star-7-16.png') rgba(255,255,255,0.5) 3px 5px no-repeat;
+    border: 1px solid #DDD;
+    /*border-radius: 5px;*/
+    background: url('../images/star-7-16.png') 3px 5px no-repeat;
+    background-color: #EEE;
 }
 
-.container .savedSessionPage ul.savedList li:hover{
-    background: url('images/star-7-16.png') #FFF 3px 5px no-repeat;
+#mainContainer .savedSessionPage ul.savedList li:hover{
+    background: url('../images/star-7-16.png') #FFF 3px 5px no-repeat;
     cursor: pointer;
 }
 
-.container .savedSessionPage ul.savedList li .icon-star{
+#mainContainer .savedSessionPage ul.savedList li .icon-star{
     margin-right: 5px;
     position: relative;
     top: -2px;
     color: #007152;
 }
-.container .savedSessionPage ul.savedList li .timestamp, 
-.container .savedSessionPage ul.savedList li .numTabs{
+#mainContainer .savedSessionPage ul.savedList li .timestamp, 
+#mainContainer .savedSessionPage ul.savedList li .numTabs{
     color: #d00;
 }
 
-.container .savedSessionPage ul.savedList li .details{
+#mainContainer .savedSessionPage ul.savedList li .details{
     /* border: 1px dashed rgba(0,0,0,0.5); */
     margin: 0 15px 15px 15px;
     display: none;
 }
-.container .savedSessionPage ul.savedList li div.tabs:before {
+#mainContainer .savedSessionPage ul.savedList li div.tabs:before {
     content: "►";
     display: block;
     float: left;
@@ -276,22 +310,25 @@ html ul.tabLabels li.active, html ul.tabLabels li.active a:hover  {
 }
 .newSessionPage label {
     cursor: pointer;
+    margin: 0 5px;
 }
 .errorMessages {
-    float: left;
+    /*float: left;*/
     color: #a30000;
     background: #FFCCCC;
     border: 1px solid #d77;
     width: 50%;
     margin-top: 3px;
-    margin-left: 8px;
+    margin-bottom: 10px;
     padding: 4px;
     border-radius: 3px;
+    clear: both;
+    width: 100%;
     display: none;
 }
 #enterSessionName, #selectExisting {
     padding: 2px 5px;
-    border: 1px solid #EEE;
+    /*border: 1px solid #EEE;*/
     width: 200px;
     margin-top: 5px;
 }
@@ -304,4 +341,7 @@ html ul.tabLabels li.active, html ul.tabLabels li.active a:hover  {
 }
 ul.howToPageDesc li {
     font-size: 1.3em;
+}
+#selectAll {
+    display: inline-block !important;
 }
